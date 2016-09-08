@@ -7,7 +7,7 @@ function seedLogs(num) {
     var offset = 525600 * Math.random(); // Some time in the last year
     timestamp.setMinutes(timestamp.getMinutes() - offset);
 
-    var endpoint = endpoints[Math.floor(Math.random() * endpoits.length)];
+    var endpoint = endpoints[Math.floor(Math.random() * endpoints.length)];
     var client_name = client_names[Math.floor(Math.random() * client_names.length)];
     var status = statuses[Math.floor(Math.random() * statuses.length)];
 
