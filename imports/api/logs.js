@@ -16,31 +16,13 @@ if (Meteor.isServer) {
 
 Meteor.methods({
 	'logs.insert'({client_name, endpoint, status}) {
-		Logs.insert({
+		// TODO: properly validate here and pass back an error if the validation fails
+    Logs.insert({
       timestamp: new Date(),
       client_name: client_name,
       endpoint: endpoint,
       status: status
     });
+    Session.set('entry_limit', Session.get('entry_limit') + 1);
   },
 });
-
-/*Logs.attachSchema(new SimpleSchema({
-  timestamp: {
-    type: Date,
-    label: "Timestamp"
-  },
-  client_name: {
-    type: String,
-    label: "Client Name"
-  },
-  endpoint: {
-  	type: String,
-  	label: "Endpoint"
-  },
-  status: {
-  	type: String,
-  	label: "Status",
-  	allowedValues: ["success", "failure"]
-  }
-}));*/
