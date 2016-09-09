@@ -4,6 +4,7 @@ The log viewing app should run without any problems. The one extra step is to se
 
     meteor mongo
     load("imports/util/seedLogs.js")
+    seedLogs(1000)
 
 (The script is hidden in imports so that it won't be loaded into the app itself.)
 
